@@ -5,20 +5,23 @@ Harness-agnostic goal loop with **eval-gated stop**. Cursor, Claude Code, Devin,
 ## Quick start (easiest)
 
 ```bash
-# Install skill into the current project (Cursor + Claude)
+# One-shot — no clone required
+npx --yes github:orbitorls/goal-loop#npm init
+npx --yes github:orbitorls/goal-loop#npm doctor
+npx --yes github:orbitorls/goal-loop#npm run --host generic-shell --goal goal.yaml
+```
+
+After publishing to npm (`goal-loop-cli`), the short form works too:
+
+```bash
 npx goal-loop-cli init
-
-# Check adapters
 npx goal-loop-cli doctor
-
-# Run a goal loop
-npx goal-loop-cli run --host generic-shell --goal goal.yaml
 ```
 
 Global install (optional):
 
 ```bash
-npm install -g goal-loop-cli
+npm install -g github:orbitorls/goal-loop#npm
 goal-loop init
 goal-loop doctor
 ```
