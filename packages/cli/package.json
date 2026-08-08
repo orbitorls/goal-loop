@@ -1,0 +1,29 @@
+{
+  "name": "@goal-loop/cli",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": {
+    "goal-loop": "./dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@goal-loop/core": "*",
+    "@goal-loop/adapter-generic-shell": "*",
+    "@goal-loop/adapter-cursor-ide": "*",
+    "@goal-loop/adapter-claude-code": "*",
+    "@goal-loop/adapter-cursor-cloud": "*",
+    "@goal-loop/adapter-devin": "*",
+    "@goal-loop/adapter-codex": "*",
+    "commander": "^13.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "typescript": "^5.8.2"
+  }
+}

@@ -1,0 +1,19 @@
+goal: Create a proof file demonstrating eval pass
+acceptance: PROOF.txt exists containing DONE
+eval:
+  kind: proof-file
+  path: PROOF.txt
+  contains: "DONE"
+proof:
+  path: PROOF.txt
+  description: Written by the demo harness on first iteration
+max_iterations: 3
+host: generic-shell
+command: node
+args:
+  - "-e"
+  - "require('fs').writeFileSync('PROOF.txt','DONE')"
+on_continue: |
+  Iteration {{iteration}} — PROOF.txt missing or does not contain DONE.
+  Eval: {{eval_output}}
+  Write PROOF.txt with content DONE.

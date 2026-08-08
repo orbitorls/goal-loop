@@ -1,0 +1,20 @@
+{
+  "name": "goal-loop",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Harness-agnostic goal loop with eval-gated stop",
+  "workspaces": [
+    "packages/*",
+    "adapters/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "goal-loop": "npm run -w @goal-loop/cli start --"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}

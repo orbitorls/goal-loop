@@ -1,0 +1,11 @@
+goal: Smoke test node harness
+acceptance: Harness runs and marker file exists
+eval:
+  kind: command
+  command: node -e "require('fs').readFileSync('smoke.marker','utf8'); console.log('smoke-ok')"
+max_iterations: 2
+host: generic-shell
+command: node
+args:
+  - "-e"
+  - "require('fs').writeFileSync('smoke.marker','ok'); console.log('goal-loop smoke')"

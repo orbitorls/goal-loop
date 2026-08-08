@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.goal-loop/
+*.log
+.DS_Store
+examples/**/PROOF.txt
+examples/**/smoke.marker

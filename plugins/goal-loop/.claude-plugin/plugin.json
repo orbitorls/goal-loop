@@ -1,0 +1,14 @@
+{
+  "name": "goal-loop",
+  "version": "0.1.0",
+  "description": "Eval-gated goal loops for Claude Code: measurable contracts, Stop hook, and agent skill",
+  "license": "MIT",
+  "keywords": [
+    "goal-loop",
+    "eval",
+    "ralph",
+    "stop-hook",
+    "skills",
+    "acceptance-criteria"
+  ]
+}

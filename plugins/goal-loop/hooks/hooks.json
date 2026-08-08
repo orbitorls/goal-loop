@@ -1,0 +1,18 @@
+{
+  "description": "Goal Loop eval-gated Stop hook (not promise-only)",
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/goal-loop-stop.mjs\"",
+            "env": {
+              "GOAL_LOOP_HOOK_FORMAT": "claude"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
