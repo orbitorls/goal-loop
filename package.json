@@ -7,14 +7,27 @@
     "packages/*",
     "adapters/*"
   ],
+  "bin": {
+    "goal-loop": "./npm-package/bin/goal-loop.cjs"
+  },
   "scripts": {
     "build": "npm run build --workspaces --if-present",
     "test": "npm run test --workspaces --if-present",
     "typecheck": "npm run typecheck --workspaces --if-present",
-    "goal-loop": "npm run -w @goal-loop/cli start --"
+    "goal-loop": "npm run -w @goal-loop/cli start --",
+    "bundle": "node scripts/bundle-npm.mjs",
+    "pack:npm": "npm run bundle && npm pack ./npm-package",
+    "publish:npm": "npm run bundle && npm publish ./npm-package --access public"
   },
   "engines": {
     "node": ">=20"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/orbitorls/goal-loop.git"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.12"
+  }
 }

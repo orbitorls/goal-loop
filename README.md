@@ -2,7 +2,28 @@
 
 Harness-agnostic goal loop with **eval-gated stop**. Cursor, Claude Code, Devin, Codex, and any CLI harness share one Goal Contract; adapters bridge host-specific continuation to a common orchestrator.
 
-## Quick start
+## Quick start (easiest)
+
+```bash
+# Install skill into the current project (Cursor + Claude)
+npx goal-loop-cli init
+
+# Check adapters
+npx goal-loop-cli doctor
+
+# Run a goal loop
+npx goal-loop-cli run --host generic-shell --goal goal.yaml
+```
+
+Global install (optional):
+
+```bash
+npm install -g goal-loop-cli
+goal-loop init
+goal-loop doctor
+```
+
+### From this repo (contributors)
 
 ```bash
 git clone https://github.com/orbitorls/goal-loop.git
@@ -10,12 +31,6 @@ cd goal-loop
 npm install
 npm run build
 npm test
-```
-
-Install the portable skill into any project (no cloud required):
-
-```bash
-npm run goal-loop -- init --host skill --workspace /path/to/your/project
 ```
 
 ### Local eval demo (Windows-friendly)
@@ -29,14 +44,14 @@ Or manually:
 
 ```powershell
 cd examples/local-eval-demo
-npx goal-loop run --host generic-shell --goal goal.yaml --workspace .
+npx goal-loop-cli run --host generic-shell --goal goal.yaml --workspace .
 ```
 
 ### Adapter smoke test
 
 ```powershell
 cd examples/adapter-smoke
-npx goal-loop run --host generic-shell --goal goal.yaml --workspace .
+npx goal-loop-cli run --host generic-shell --goal goal.yaml --workspace .
 ```
 
 ## Stop rules
@@ -89,14 +104,16 @@ Teaches the agent eval-gated stop and Goal Contract fields. No hooks required.
 
 ```bash
 # Project scope (recommended)
-goal-loop init --host skill --workspace .
+npx goal-loop-cli init
+# or with explicit host:
+npx goal-loop-cli init --host skill --workspace .
 
 # Cursor or Claude only
-goal-loop init --host cursor-skill --workspace .
-goal-loop init --host claude-skill --workspace .
+npx goal-loop-cli init --host cursor-skill --workspace .
+npx goal-loop-cli init --host claude-skill --workspace .
 
 # User-wide (~/.cursor/skills or ~/.claude/skills)
-goal-loop init --host skill --global
+npx goal-loop-cli init --host skill --global
 ```
 
 Manual copy: `skills/goal-loop/` → `.cursor/skills/goal-loop/` or `.claude/skills/goal-loop/`.
@@ -121,7 +138,7 @@ npm run goal-loop -- init --host cursor-ide --workspace .
 npm run goal-loop -- init --host claude-code --workspace .
 ```
 
-From npm (when published): `npx goal-loop init --host cursor-ide`.
+From npm: `npx goal-loop-cli init --host cursor-ide`.
 
 | Command | Description |
 |---------|-------------|

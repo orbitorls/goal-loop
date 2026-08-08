@@ -3,5 +3,6 @@ dist/
 .goal-loop/
 *.log
 .DS_Store
+*.tgz
 examples/**/PROOF.txt
 examples/**/smoke.marker

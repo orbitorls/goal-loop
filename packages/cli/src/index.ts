@@ -64,8 +64,12 @@ program
 
 program
   .command("init")
-  .description("Install hook templates or agent skill for a host")
-  .requiredOption("--host <id>", "Host adapter id (e.g. cursor-ide, claude-code, skill)")
+  .description("Install agent skill (default) or host hooks")
+  .option(
+    "--host <id>",
+    "Host: skill | cursor-skill | claude-skill | cursor-ide | claude-code | …",
+    "skill",
+  )
   .option("--workspace <path>", "Workspace directory", process.cwd())
   .option("--global", "Install skill to user home (~/.cursor or ~/.claude)")
   .action((opts: { host: string; workspace: string; global?: boolean }) => {

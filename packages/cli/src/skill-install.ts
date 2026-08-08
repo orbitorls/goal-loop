@@ -1,7 +1,6 @@
 import { cpSync, existsSync, mkdirSync, readdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { homedir } from "node:os";
-import { fileURLToPath } from "node:url";
 
 export type SkillTarget = "cursor" | "claude";
 
@@ -11,12 +10,23 @@ export interface InstallSkillOptions {
   global?: boolean;
 }
 
+/** Resolve package/module dir without import.meta (works in CJS npx bundle). */
+function moduleDir(): string {
+  const argvPath = process.argv[1];
+  if (argvPath) return dirname(argvPath);
+  return process.cwd();
+}
+
 function listSkillSourceCandidates(): string[] {
-  const here = dirname(fileURLToPath(import.meta.url));
+  const here = moduleDir();
   return [
     join(here, "..", "skills", "goal-loop"),
+    join(here, "skills", "goal-loop"),
     join(here, "..", "..", "..", "skills", "goal-loop"),
     join(here, "..", "..", "..", "plugins", "goal-loop", "skills", "goal-loop"),
+    join(here, "..", "plugins", "goal-loop", "skills", "goal-loop"),
+    join(process.cwd(), "skills", "goal-loop"),
+    join(process.cwd(), "packages", "goal-loop", "skills", "goal-loop"),
   ];
 }
 
