@@ -1,0 +1,15 @@
+{
+  "name": "goal-loop",
+  "displayName": "Goal Loop",
+  "version": "0.1.0",
+  "description": "Eval-gated goal loops: measurable contracts, stop hook, and agent skill",
+  "license": "MIT",
+  "keywords": [
+    "goal-loop",
+    "eval",
+    "stop-hook",
+    "skills"
+  ],
+  "skills": "./skills/",
+  "hooks": "./hooks/hooks-cursor.json"
+}
