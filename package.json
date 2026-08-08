@@ -8,7 +8,7 @@
     "adapters/*"
   ],
   "bin": {
-    "goal-loop": "./npm-package/bin/goal-loop.cjs"
+    "goal-loop": "./npm-package/bin/goal-loop.js"
   },
   "scripts": {
     "build": "npm run build --workspaces --if-present",

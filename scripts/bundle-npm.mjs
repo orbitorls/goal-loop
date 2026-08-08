@@ -20,7 +20,7 @@ const require = createRequire(import.meta.url);
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const outDir = join(root, "npm-package");
 const binDir = join(outDir, "bin");
-const outBin = join(binDir, "goal-loop.cjs");
+const outBin = join(binDir, "goal-loop.js");
 
 function run(cmd, args, opts = {}) {
   const r = spawnSync(cmd, args, {
@@ -78,8 +78,8 @@ const pkg = {
   description:
     "Harness-agnostic goal loop with eval-gated stop — npx goal-loop-cli",
   bin: {
-    "goal-loop": "./bin/goal-loop.cjs",
-    "goal-loop-cli": "./bin/goal-loop.cjs",
+    "goal-loop": "bin/goal-loop.js",
+    "goal-loop-cli": "bin/goal-loop.js",
   },
   files: ["bin", "skills", "plugins", "README.md"],
   engines: {

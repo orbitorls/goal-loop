@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "description": "Harness-agnostic goal loop with eval-gated stop — npx goal-loop-cli",
   "bin": {
-    "goal-loop": "./bin/goal-loop.cjs",
-    "goal-loop-cli": "./bin/goal-loop.cjs"
+    "goal-loop": "bin/goal-loop.js",
+    "goal-loop-cli": "bin/goal-loop.js"
   },
   "files": [
     "bin",
